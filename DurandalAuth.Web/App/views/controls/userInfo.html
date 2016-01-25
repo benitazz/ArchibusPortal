@@ -1,0 +1,78 @@
+﻿<section class="form-horizontal group">
+    <div class="row">
+        <div class="page-header">
+            <h4><a data-toggle="collapse" data-target="#personalDetails">Personal Details</a></h4>
+            <!--<h4><a data-toggle="collapse" data-target="#personalDetails"><span class="glyphicon glyphicon-chevron-up"> </span> Personal Details</a></h4>-->
+            <!--<button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#personalDetails">
+                <span class="glyphicon glyphicon-chevron-up"></span> Close
+            </button>-->
+        </div>
+        <div id="personalDetails">
+            <div class="col-lg-offset-2 col-lg-8">
+                <div class="form-group">
+                    <label class="control-label col-lg-4">Title</label>
+                    <div class="col-lg-2">
+                        <span data-bind="text: title()? title().name:'None',visible: !isEdit()"></span>
+                        <select class="form-control" data-bind="options: titles,visible: isEdit(), optionsText: 'name', value: title, optionsCaption: 'Please Select'"></select>
+                    </div>
+                    <label class="control-label col-lg-2">Gender</label>
+                    <div class="col-lg-4">
+                        <strong> <span data-bind="text: gender,visible: !isEdit()"></span> </strong>
+                        <div data-bind="visible: isEdit()">
+                            <div class="btn-group btn-group-yes_no" data-toggle="buttons">
+                                <label class="btn btn-default"><input value="1" data-bind="bsChecked:gender" type="radio">Male</label>
+                                <label class="btn btn-default"><input value="2" data-bind="bsChecked:gender" type="radio">Female</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group" data-bind="validationElement: dateOfBirth">
+                    <label class="control-label col-lg-4" for="initials">Initials</label>
+                    <div class="col-lg-2">
+                        <strong>
+                            <span data-bind="text: initials ? initials : '', visible: !isEdit()"></span>
+                            <input class="form-control" type="text" data-bind="value: initials ? initials : '', visible: isEdit()" maxlength="10"/>
+                        </strong>
+                    </div>
+                    <label class="control-label col-lg-2" for="dateOfBirth">Date of Birth</label>
+                    <div class="col-lg-4">
+                        <span data-bind="date: dateOfBirth,visible: !isEdit()"></span>
+                        <!--<input class="form-control" data-bind="datepicker: dateOfBirth, datepickerOptions: { minDate: new Date() }"/>-->
+                        <!--<input type="text" class="form-control" data-bind="datepicker: { autoclose: true, startView: 'decade', value: dateOfBirth, format: 'yyyy/mm/dd', endDate: 'today' }, inputmask: 'yyyy/mm/dd'" placeholder="Date of Birth">-->
+                        <!--<input class="form-control" data-bind="datepicker:dateOfBirth, datepickerOptions: { format: 'yyyy-mm-dd', autoclose: 'true', weekStart: 1, todayHighlight:'true' }">-->
+
+                        <input class="form-control" type="text" data-bind="value: dateOfBirth" placeholder="dd-mm-yyy">
+                    </div>
+
+                    <!--<div class="input-group date" id="dp3" data-date="12-02-2015" data-datepicker-format="dd-mm-yyyy">
+                        <input class="form-control" size="16" type="text" value="12-02-2015">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                    </div>-->
+                </div>
+                <!--<input class="datepicker" data-bind='datepicker: startDate' />-->      
+
+                <div class="form-group" data-bind="validationElement: firstname">
+                    <label class="control-label col-lg-4" for="firstname">FirstName</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" type="text" data-bind="value: firstname" placeholder="Firstname">
+                    </div>
+                </div>
+                <div class="form-group" data-bind="validationElement: surname">
+                    <label class="control-label col-lg-4" for="surname">Surname</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" type="text" data-bind="value: surname" placeholder="Surname">
+                    </div>
+                </div>
+
+                <!--<div class="form-group">
+                    <label class="control-label col-lg-4" for="nationality">Nationality</label>
+                    <div class="col-lg-8">
+                        <span data-bind="text: nationality()? nationality().name:'None',visible: !isEdit()"></span>
+                        <select class="form-control" data-bind="options: nationalities,visible: isEdit(), optionsText: 'name', value: nationality, optionsCaption: 'Please Select'"></select>
+                    </div>
+                </div>-->
+            </div>
+        </div>
+    </div>
+</section>
+

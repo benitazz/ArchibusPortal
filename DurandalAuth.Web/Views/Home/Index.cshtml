@@ -1,0 +1,143 @@
+﻿@using System.Web.Optimization
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>ALCM Solutions</title>
+		
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="format-detection" content="telephone=no"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+        
+		<meta name="fragment" content="!">
+		
+		@Styles.Render("~/Content/css")
+		@Styles.Render("~/Content/custom")
+
+		<script type="text/javascript">
+			if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+				var msViewportStyle = document.createElement("style");
+				var mq = "@@-ms-viewport{width:auto!important}";
+				msViewportStyle.appendChild(document.createTextNode(mq));
+				document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+			}
+		</script>
+	    <script>
+    	    (function(i, s, o, g, r, a, m) {
+    	        i['GoogleAnalyticsObject'] = r;
+    	        i[r] = i[r] || function() {
+	                (i[r].q = i[r].q || []).push(arguments);
+	            }, i[r].l = 1 * new Date();
+    	        a = s.createElement(o),
+    	            m = s.getElementsByTagName(o)[0];
+    	        a.async = 1;
+    	        a.src = g;
+    	        m.parentNode.insertBefore(a, m);
+    	    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    	    ga('create', '@System.Configuration.ConfigurationManager.AppSettings["AnalyticsCode"]', '@System.Configuration.ConfigurationManager.AppSettings["AnalyticsDomain"]');
+    	</script>
+	    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    </head>
+	<body>
+		<div class="st-sticky-wrap" id="applicationHost">
+		    <div class="splash well">
+                <div class="message">
+                    <div class="jumbotron">
+                        <h1>ALCM Solutions CC</h1>
+                        <p class="lead"><img src="~/Content/images/logo.PNG" alt=""> &nbsp; A specialist consultancy that provides enterprise infrasctructure manangement solutions.</p>
+                    </div>
+                </div>
+		    </div>
+		</div>
+	<footer>
+	    <div class="container">
+	        <div class="row">
+	            <article class="col-md-4 col-lg-4 visible-md visible-lg">
+	                <h1>Address</h1>
+	                <p>
+	                    6 Centuria Park<br/>
+	                    265 Von Willich Avenue<br/>
+	                    Centurion<br/>
+	                    Pretoria<br/>
+	                    Gauteng<br/>
+	                    0157
+	                </p>
+	            </article>
+	            <article class="col-md-4 col-lg-4 visible-md visible-lg">
+	                <div class="footer-content">
+	                    <ul class="list-unstyled">
+	                        <li>
+                                <a href="https://www.facebook.com/alcmsolutions?_rdr=p" target="_blank"><i class="fa fa-facebook"></i>&nbsp;Like our page on Facebook</a>
+	                        </li>
+	                        <li>
+                                <a href="https://twitter.com/alcmsolutions" target="_blank"><i class="fa fa-twitter"></i>&nbsp;Follow us on Twitter</a>
+	                        </li>
+	                        <li>
+                                <a href="mailto:info@alcm.co.za" target="_blank"><i class="fa fa-envelope"></i>&nbsp;Email Us</a>
+	                        </li>
+	                    </ul>
+	                    <p class="fa fa-phone"> +27 (0)10 594 2817</p>
+	                 </div>
+	            </article>
+	            <article class="col-md-4 col-lg-4 visible-md visible-lg">
+                    <div style="overflow:hidden;height:200px;width:300px; margin: 4px 0;">
+                        <div id="gmap_canvas" style="height:200px;width:300px;"></div>
+                        <style>
+                            #gmap_canvas img {
+                                max-width: none !important;
+                                background: none !important;
+                            }
+                        </style>
+                        <a class="google-map-code" href="http://www.themecircle.net" id="get-map-data">themecircle</a>
+                    </div>
+	            </article>
+	        </div>
+	    </div>
+
+	    <div class="row disclaimer st-sticky-footer">
+	        <div class="col-sm-6 col-md-6 col-lg-6">
+	            <div class="footer-content">
+	                <p>
+	                    Designed and created by <a href="http://twitter.com/benitazz" target="_blank">@@benitazz</a>
+	                </p>
+	                <p>
+	                    © 2015 by ALCM Solutions CC
+	                </p>
+	            </div>
+	        </div>
+	        <div class="col-sm-6 col-md-6 col-lg-6">
+	            <div class="footer-content">
+	                <p>info@alcm.co.za</p>
+	                <p>6 Centuria Park,265 Von Willich Avenue, Centurion, Pta, Gauteng, 0157, South Africa</p>
+	            </div>
+	        </div>
+	    </div>
+	</footer>
+
+    <script type="text/javascript">
+        function init_map() {
+            var myOptions = {
+                zoom: 14, center: new google.maps.LatLng(37.2829183, -121.94941349999999), mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+
+            map = new google.maps.Map(document.getElementById("gmap_canvas"), myOptions);
+            marker = new google.maps.Marker({ map: map, position: new google.maps.LatLng(37.2829183, -121.94941349999999) });
+            infowindow = new google.maps.InfoWindow({ content: "<b>Mzansi Corporate Solutions  CC</b><br/>21 Eden North, Sunnyside<br/> Pretoria" });
+            google.maps.event.addListener(marker, "click", function () { infowindow.open(map, marker); });
+            infowindow.open(map, marker);
+        } google.maps.event.addDomListener(window, 'load', init_map);
+    </script>
+
+	@Scripts.Render("~/scripts/vendor")
+		
+		@if(HttpContext.Current.IsDebuggingEnabled) {
+			<script type="text/javascript" src="/Scripts/require.js" data-main="/App/main"></script>
+		} else {
+			<script type="text/javascript" src="/App/main-built.js"></script>	  		
+		}
+
+	</body>
+</html>

@@ -1,0 +1,62 @@
+﻿<section class="form-horizontal group">
+    <div class="row">
+        <div class="page-header">
+            <h4><a data-toggle="collapse" data-target="#addressDetails" data-bind="text:addressTitle"></a></h4>
+        </div>
+        <div id="addressDetails">
+            <div class="col-lg-offset-2 col-lg-8">
+                <div class="form-group">
+                    <label class="col-lg-4 control-label">Address Type</label>
+                    <div class="col-lg-8">
+                        <span data-bind="text: addressType()?addressType().name:'', visible: !isEdit()"></span>
+                        <select class="form-control" data-bind="options: availableAddressTypes,visible: isEdit(), optionsText: 'name', value: addressType, optionsCaption: 'Please Select'"></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-4 control-label">Province</label>
+                    <div class="col-lg-8" data-bind="bootstrapValidation: { value: selectedProvince, hasIcon: true }">
+                        <span data-bind="text: provinceText, visible: !isEdit()"></span>
+                        <select class="form-control" data-bind="visible: isEdit(), options: availableProvinces, optionsText: 'name', value: selectedProvince, optionsCaption: 'Please Select'"></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-4 control-label">Suburb</label>
+                    <div class="col-lg-8" data-bind="bootstrapValidation: { value: suburbText, hasIcon: true }">
+                        <span data-bind="text: suburbText, visible: !isEdit()"></span>
+                        <input class="form-control" type="text" data-bind="value: suburbText,visible: isEdit()" placeholder="Address Line 1" />
+                        <!--<div data-bind="visible: isEdit()">
+                            <input class="form-control" type="text" data-bind="value : typedSuburbName, valueUpdate: 'afterkeydown', autocomplete: { dataSource: availableSuburbs(), dataTextField: 'SuburbBoxDisplayName', value: typedSuburbName, selectedObject: selectedSuburb }" placeholder="Surburb">
+                        </div>-->
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-4 control-label">Address Line 1</label>
+                    <div class="col-lg-8">
+                        <span data-bind="text: addressLine1,visible: !isEdit()"></span>
+                        <input class="form-control" type="text" data-bind="value: addressLine1,visible: isEdit()" placeholder="Address Line 1" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-4 control-label">Address Line 2 (optional)</label>
+                    <div class="col-lg-8">
+                        <span data-bind="text: addressLine2,visible: !isEdit()"></span>
+                        <input class="form-control" type="text" data-bind="value: addressLine2,visible: isEdit()" placeholder="Address Line 2" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-4 control-label">Postal Code</label>
+                    <div class="col-lg-8">
+                        <span data-bind="text: postalCode,visible: !isEdit()"></span>
+                        <input class="form-control" type="text" data-bind="value: postalCode,visible: isEdit()" placeholder="postal code" />
+                    </div>
+                </div>
+                <!--<div class="form-group" data-bind="visible: !isDefault() && isEdit()">
+                    <label class="col-lg-4 control-label">Set as Default</label>
+                    <div class="col-lg-8">
+                        <strong><input type="checkbox" data-bind="checked: isNewDefault,visible: isEdit()" /></strong>
+                    </div>
+                </div>-->
+            </div>
+        </div>
+    </div>
+</section>
